@@ -6,7 +6,7 @@ module.exports = function(robot) {
   });
 
   robot.respond(/Generate random pairs of (?<names>.*)/, function(res) {
-    let listOfDevs = res.match.groups.names.split(/, ? /);
+    let listOfDevs = res.match.groups.names.split(/, ? | \band\b /);
     let shuffledList = shuffle(listOfDevs);
 console.log(shuffledList[0])
     return res.send(`@${shuffledList[0]} pair with ${shuffledList[1]} on ${shuffledList[1]}'s task`,
