@@ -21,14 +21,17 @@ describe('pair-shuffler', function() {
   //   });
   // });
 
-  it('Hubot responds', function () {
+  it('Hubot responds for two users separated by a comma', function () {
     return this.room.user.say('Dianne', '@hubot Generate random pairs of Brandyn, Dianne').then(() => {
-      expect(this.room.messages).to.eql([
-        ['Dianne', '@hubot Generate random pairs of Brandyn, Dianne'],
+      expect(`${this.room.messages}`).to.contain(
         ['hubot', "@Dianne pair with Brandyn on Brandyn's task"],
+      );
+      expect(`${this.room.messages}`).to.contain(
         ['hubot', "@Brandyn pair with Dianne on Dianne's task"]
+      );
+    });
+  });
 
-      ]);
     });
   });
 });
