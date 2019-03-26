@@ -21,8 +21,10 @@ Then add **hubot-pair-shuffler** to your `external-scripts.json`:
 ## Sample Interaction
 
 ```
-user1>> hubot hello
-hubot>> hello!
+user1>> @hubot Generate random pairs of Brandyn, Dustin, and Dianne
+hubot>> @Dianne pair with Brandyn on Brandyn's task
+        @Brandyn pair with Dustin on Dustin's task
+        @Dustin pair with Dianne on Dianne's task
 ```
 
 ## NPM Module
