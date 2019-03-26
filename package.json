@@ -1,7 +1,7 @@
 {
   "name": "hubot-pair-shuffler",
   "description": "A hubot that shuffles pairs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Dianne Eramo <dianne.eramo@gmail.com>",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts",
