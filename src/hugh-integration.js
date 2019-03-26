@@ -1,4 +1,4 @@
-const shuffle = require('../src/pair-shuffler.js');
+var { shuffle } = require('../src/pair-shuffler.js');
 
 module.exports = function(robot) {
   robot.respond(/hello/, function(res) {
@@ -6,14 +6,17 @@ module.exports = function(robot) {
   });
 
   robot.respond(/Generate random pairs of (?<names>.*)/, function(res) {
-    let listOfDevs = res.match.groups.names.split(/, ? | \band\b /);
-    let shuffledList = shuffle(listOfDevs);
-console.log(shuffledList[0])
-    return res.send(`@${shuffledList[0]} pair with ${shuffledList[1]} on ${shuffledList[1]}'s task`,
-      `@${shuffledList[1]} pair with ${shuffledList[0]} on ${shuffledList[0]}'s task`)
+    // RegEx Note: We want to split on all possible combinations including a comma or the word 'and'
+    let listOfDevs = res.match.groups.names.split(/(?:,| ?and\b) ?/).filter((name) => {
+      return name.length > 0;
+    });
 
-    // ['hubot', "@Dianne pair with Brandyn on Brandyn's task"],
-    // ['hubot', "@Brandyn pair with Dianne on Dianne's task"]
+    let shuffledList = shuffle(listOfDevs);
+
+    shuffledList.forEach((dev, i) => {
+      let nextDev = (i+1) % shuffledList.length;
+      return res.send(`@${shuffledList[i]} pair with ${shuffledList[nextDev]} on ${shuffledList[nextDev]}'s task`);
+    });
   });
 };
 
