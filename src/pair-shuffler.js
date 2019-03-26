@@ -1,11 +1,3 @@
-// Given a list of 5 people, we want to pair them up
-// Order only matters within the pairs
-// Role is determined by order within the pair
-// Prevent someone from being paired with themselves
-// Ignore opting out for now
-
-// We want to go through one full cycle of all possible pairs before starting again
-
 function shuffle(listOfDevs) {
   // ['Brandyn', 'Dianne', 'Dustin', 'Mark']
 
@@ -23,7 +15,7 @@ function shuffle(listOfDevs) {
 }
 
 function _getRandomNum() {
-  // Needs to be aware of whether to use a real random num generator or a shitty one
+  // Needs to be aware of whether to use a real random num generator or a static test number
   if (testMode === false) {
     return Math.random();
   }

@@ -5,9 +5,9 @@ module.exports = function(robot) {
     return res.reply("Hi Dianne");
   });
 
-  robot.respond(/Generate random pairs of (?<names>.*)/, function(res) {
+  robot.respond(/Generate random pairs of (.*)/, function(res) {
     // RegEx Note: We want to split on all possible combinations including a comma or the word 'and'
-    let listOfDevs = res.match.groups.names.split(/(?:,| ?and\b) ?/).filter((name) => {
+    let listOfDevs = res.match[1].split(/(?:,| ?and\b) ?/).filter((name) => {
       return name.length > 0;
     });
 

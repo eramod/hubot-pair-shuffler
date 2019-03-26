@@ -2,8 +2,6 @@
 
 A hubot that shuffles pairs
 
-See [`src/pair-shuffler.coffee`](src/pair-shuffler.coffee) for full documentation.
-
 ## Installation
 
 In hubot project repo, run:
